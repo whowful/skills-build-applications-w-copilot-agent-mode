@@ -1,0 +1,24 @@
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #f3f7ff 0%, #f8fafc 55%, #eef6f0 100%);
+}
+
+.card {
+  border-radius: 0.9rem;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.modal {
+  background-color: rgba(20, 30, 50, 0.2);
+}
