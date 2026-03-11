@@ -1,12 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-const getApiBaseUrl = () => {
-  const codespaceName = process.env.REACT_APP_CODESPACE_NAME;
-  if (codespaceName) {
-    return `https://${codespaceName}-8000.app.github.dev/api`;
-  }
-  return 'http://localhost:8000/api';
-};
+const ACTIVITIES_ENDPOINT = process.env.REACT_APP_CODESPACE_NAME
+  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/activities/';
 
 const normalizeData = (data) => {
   if (Array.isArray(data)) {
@@ -25,7 +21,7 @@ function Activities() {
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
-  const endpoint = `${getApiBaseUrl()}/activities/`;
+  const endpoint = ACTIVITIES_ENDPOINT;
 
   const fetchData = useCallback(async () => {
     try {
